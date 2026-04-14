@@ -4,15 +4,12 @@ Predicting enzyme melting temperature (Tm) from amino acid sequence using Meta's
 
 ## Why This Matters
 
-Enzymes are the catalysts that drive industrial bioprocesses — fermentation, biodegradation, drug synthesis, biofuel production. The problem: most natural enzymes are fragile. They unfold and stop working above ~40°C. But industrial reactors run at 60–80°C for efficiency.
+Enzymes are the catalysts that drive industrial bioprocesses such as fermentation, biodegradation, drug synthesis, biofuel production. However, most natural enzymes are fragile. They unfold and become ineffective above ~40°C. But industrial reactors run at 60–80°C for efficiency. To solve this problem, my goal is to engineer a thermostable enzyme experimetally. 
 
-Engineering a thermostable enzyme experimentally means:
-- Design a mutation → express the protein in a host organism → purify it → measure Tm in the lab
-- That's **weeks of work per variant**, and directed evolution generates **thousands of variants**
+Engineering a thermostable enzyme experimentally means following a 4-step process that;
+- Designs a mutation → express the protein in a host organism → purify it → measure Tm in the lab
 
-Computational prediction lets you pre-screen millions of candidates in minutes and only synthesize the top ones. This is the bottleneck Novozymes, Codexis, and DSM-Firmenich spend hundreds of millions solving every year.
-
-This project is also directly tied to published experimental research on lipase and cellulase production in fermentation systems — exactly the class of enzyme where thermostability determines industrial viability.
+- Executing this could take **weeks of work per variant**, and directed evolution generates **thousands of variants**, but computational prediction lets you pre-screen millions of candidates in minutes and only synthesize the top ones. This is the bottleneck companies such as  Novozymes, Codexis, and DSM-Firmenich spend hundreds of millions solving every year. This project is also directly tied to published to my experimental research on lipase and cellulase production in fermentation systems; exactly the class of enzyme where thermostability determines industrial viability.
 
 ## Overview
 
@@ -106,7 +103,7 @@ The ESM-2 model weights were not updated during training — we extracted its pr
 | Full ESM-2 fine-tuning (GPU required) | ~0.65–0.70 |
 | ESM-2 650M fine-tuned on ProteinGym | ~0.72–0.75 |
 
-This work sits correctly at the frozen-embedding ceiling. The +43% relative improvement over baseline demonstrates that transformer-derived representations capture thermodynamic signal that simple residue statistics miss — even without fine-tuning.
+This work sits correctly at the frozen-embedding ceiling. The +43% relative improvement over baseline demonstrates that transformer-derived representations capture thermodynamic signal that simple residue statistics miss, even without fine-tuning.
 
 ### What Spearman ρ = 0.673 means
 
@@ -114,14 +111,13 @@ Spearman correlation measures rank ordering — whether the model correctly iden
 
 ### Known limitations
 - No 3D structural input (AlphaFold2 structural features would improve results)
-- Frozen model weights — fine-tuning would raise the ceiling substantially
-- Sequences truncated at 512 tokens — very long proteins (>512 AA) lose C-terminal information
-- Training data limited to ~7k proteins — generalization to highly novel protein families may be poor
+- Frozen model weights; fine-tuning would raise the ceiling substantially
+- Sequences truncated at 512 tokens; very long proteins (>512 AA) lose C-terminal information
+- Training data limited to ~7k proteins; generalization to highly novel protein families may be poor
 
 ## Motivation
 
-This project is a direct extension of published experimental research on ML-driven bioprocess optimization (7 peer-reviewed publications, 120+ citations). Prior work applied ANN, Random Forest, and Bayesian optimization to fermentation and enzymatic production systems. This project extends that framework to protein-level sequence modelling using transformer-based representations — bridging tabular bioprocess ML with modern protein language models.
-
+This project is a direct extension of published experimental research on ML-driven bioprocess optimization (7 peer-reviewed publications, 120+ citations). Prior work applied ANN, Random Forest, and Bayesian optimization to fermentation and enzymatic production systems. This project extends that framework to protein-level sequence modelling using transformer-based representations bridging tabular bioprocess ML with modern protein language models.
 The thermostability problem is directly relevant to industrial enzyme engineering for fermentation and bioconversion processes, including lipase production systems studied in published research.
 
 ## Setup
@@ -140,7 +136,6 @@ python 03_train_and_evaluate.py       # Train baseline + ESM-2 models
 python 03c_train_augmented.py         # Train augmented (embeddings + physicochemical)
 python 04_visualize.py                # Generate figures to results/
 ```
-
 Or run the full pipeline:
 
 ```bash
@@ -174,6 +169,7 @@ enzyme-thermostability/
 ## Author
 
 **Ogaga Maxwell Okedi**
-MS Computer Science, University of Texas at Dallas
-MS Chemical Engineering, FAMU–FSU College of Engineering
-[ogaga-ai.github.io](https://ogaga-ai.github.io) · [github.com/ogaga-ai](https://github.com/ogaga-ai)
+- MS Computer Science, University of Texas at Dallas
+- MS Chemical Engineering, FAMU–FSU College of Engineering
+- [ogaga-ai.github.io](https://ogaga-ai.github.io) ·
+- [github.com/ogaga-ai](https://github.com/ogaga-ai)
