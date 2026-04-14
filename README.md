@@ -29,7 +29,7 @@ ESM-2 (150M) embeddings augmented with physicochemical sequence features improve
 
 ## Figures
 
-**Predicted vs Actual Tm — three models**
+**Predicted vs Actual Tm (three models)**
 
 ![Predicted vs Actual](results/fig1_predicted_vs_actual.png)
 
@@ -88,7 +88,7 @@ The best model explains **45.6% of the variance** in melting temperature. This i
 Thermostability is determined by the protein's 3D folded structure — the network of hydrogen bonds, hydrophobic core packing, salt bridges, and disulfide bonds that resist unfolding at high temperature. Amino acid sequence encodes this structure only indirectly. Predicting Tm from sequence without structural input is an inherently noisy task.
 
 **2. ESM-2 is used as a frozen feature extractor**
-The ESM-2 model weights were not updated during training — we extracted its pre-trained representations and fitted a regression model on top. ESM-2 was trained on evolutionary sequence patterns, not thermostability. Fine-tuning ESM-2 end-to-end on this task (updating all 150M parameters) would significantly improve performance but requires a GPU (~4–6 hours on a T4).
+The ESM-2 model weights were not updated during training. we extracted its pre-trained representations and fitted a regression model on top. ESM-2 was trained on evolutionary sequence patterns, not thermostability. Fine-tuning ESM-2 end-to-end on this task (updating all 150M parameters) would significantly improve performance but requires a GPU (~4–6 hours on a T4).
 
 **3. Dataset size**
 7,029 proteins is small by deep learning standards. The best published results on thermostability use millions of variant measurements (e.g., ProteinGym, 2.7M variants across 217 proteins). More data enables deeper models to generalize better.
@@ -107,7 +107,7 @@ This work sits correctly at the frozen-embedding ceiling. The +43% relative impr
 
 ### What Spearman ρ = 0.673 means
 
-Spearman correlation measures rank ordering — whether the model correctly identifies which proteins are more thermostable than others, regardless of exact temperature values. ρ = 0.673 means the model's rankings are strongly correlated with the true rankings. For industrial pre-screening (rank candidates, synthesize the top 10%) this is the metric that matters most, and 0.673 is competitive with published frozen-embedding benchmarks.
+Spearman correlation measures rank ordering, whether the model correctly identifies which proteins are more thermostable than others, regardless of exact temperature values. ρ = 0.673 means the model's rankings are strongly correlated with the true rankings. For industrial pre-screening (rank candidates, synthesize the top 10%) this is the metric that matters most, and 0.673 is competitive with published frozen-embedding benchmarks.
 
 ### Known limitations
 - No 3D structural input (AlphaFold2 structural features would improve results)
