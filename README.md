@@ -60,7 +60,7 @@ In addition to ESM-2 embeddings, 25 physicochemical features are concatenated:
 - 20-dimensional amino acid frequency vector
 - GRAVY score (Kyte-Doolittle hydrophobicity)
 - Aromaticity (fraction of F, W, Y residues)
-- Aliphatic fraction (I, V, L — thermostability correlated)
+- Aliphatic fraction (I, V, L ;thermostability correlated)
 - Charged residue fraction (D, E, K, R)
 - Log-normalized sequence length
 
@@ -85,7 +85,7 @@ In addition to ESM-2 embeddings, 25 physicochemical features are concatenated:
 The best model explains **45.6% of the variance** in melting temperature. This is expected and honest for the following reasons:
 
 **1. Sequence alone is an incomplete signal**
-Thermostability is determined by the protein's 3D folded structure — the network of hydrogen bonds, hydrophobic core packing, salt bridges, and disulfide bonds that resist unfolding at high temperature. Amino acid sequence encodes this structure only indirectly. Predicting Tm from sequence without structural input is an inherently noisy task.
+Thermostability is determined by the protein's 3D folded structure, that is; the network of hydrogen bonds, hydrophobic core packing, salt bridges, and disulfide bonds that resist unfolding at high temperature. Amino acid sequence encodes this structure only indirectly. Predicting Tm from sequence without structural input is an inherently noisy task.
 
 **2. ESM-2 is used as a frozen feature extractor**
 The ESM-2 model weights were not updated during training. we extracted its pre-trained representations and fitted a regression model on top. ESM-2 was trained on evolutionary sequence patterns, not thermostability. Fine-tuning ESM-2 end-to-end on this task (updating all 150M parameters) would significantly improve performance but requires a GPU (~4–6 hours on a T4).
