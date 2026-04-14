@@ -108,6 +108,6 @@ enzyme-thermostability/
 ## Author
 
 **Ogaga Maxwell Okedi**
-MS Computer Science, University of Texas at Dallas (in view)
-MS Chemical Engineering, FAMU–FSU College of Engineering
-B.Sc Chemical Enginering
+-MS Computer Science, University of Texas at Dallas (in view)
+-MS Chemical Engineering, FAMU–FSU College of Engineering
+-B.Sc Chemical Enginering
