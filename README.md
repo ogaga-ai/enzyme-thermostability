@@ -4,7 +4,7 @@ Predicting enzyme melting temperature (Tm) from amino acid sequence using Meta's
 
 ## Overview
 
-Thermostability is a critical property in enzyme engineering — industrially relevant enzymes must retain activity under process conditions (elevated temperature, pH, solvent exposure). Experimental measurement of Tm is resource-intensive; computational prediction from sequence alone enables rapid pre-screening.
+Thermostability is a critical property in enzyme engineering. Industrially relevant enzymes must retain activity under process conditions (elevated temperature, pH, solvent exposure). Experimental measurement of Tm is resource-intensive; computational prediction from sequence alone enables rapid pre-screening.
 
 This project benchmarks ESM-2 sequence embeddings against a hand-crafted amino acid composition baseline on the AI4Protein thermostability dataset (7,029 proteins, Tm range: 40–67°C).
 
@@ -57,7 +57,7 @@ The UMAP projection reveals continuous Tm-correlated structure in the ESM-2 embe
 
 ## Motivation
 
-This project is a direct extension of my published research on ML-driven bioprocess optimization (7 peer-reviewed publications, 120+ citations). Prior work applied ANN, Random Forest, and Bayesian optimization to fermentation and enzymatic production systems. This project extends that framework to protein-level sequence modelling using transformer-based representations — bridging tabular bioprocess ML with modern protein language models.
+This project is a direct extension of my published research on ML-driven bioprocess optimization. Prior work applied ANN, Random Forest, and Bayesian optimization to fermentation and enzymatic production systems. This project extends that framework to protein-level sequence modelling using transformer-based representations; bridging tabular bioprocess ML with modern protein language models.
 
 The thermostability problem is directly relevant to industrial enzyme engineering for fermentation and bioconversion processes, including lipase production systems studied in my published research.
 
@@ -108,6 +108,6 @@ enzyme-thermostability/
 ## Author
 
 **Ogaga Maxwell Okedi**
-MS Computer Science, University of Texas at Dallas
+MS Computer Science, University of Texas at Dallas (in view)
 MS Chemical Engineering, FAMU–FSU College of Engineering
-[ogaga-ai.github.io](https://ogaga-ai.github.io) · [github.com/ogaga-ai](https://github.com/ogaga-ai)
+B.Sc Chemical Enginering
