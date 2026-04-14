@@ -47,7 +47,7 @@ The UMAP projection reveals continuous Tm-correlated structure in the ESM-2 embe
 
 ### Dataset
 - **Source:** [AI4Protein/Thermostability](https://huggingface.co/datasets/AI4Protein/Thermostability) (HuggingFace)
-- 7,029 proteins: trained 5,054 /Validated 639/tested
+- 7,029 proteins: trained 5,054 /Validated 639/tested 1,336
 - Target: melting temperature Tm (°C), range 40.2–66.9°C
 
 ### Embeddings
