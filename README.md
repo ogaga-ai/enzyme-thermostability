@@ -117,8 +117,7 @@ Spearman correlation measures rank ordering, whether the model correctly identif
 
 ## Motivation
 
-This project is a direct extension of published experimental research on ML-driven bioprocess optimization (7 peer-reviewed publications, 120+ citations). Prior work applied ANN, Random Forest, and Bayesian optimization to fermentation and enzymatic production systems. This project extends that framework to protein-level sequence modelling using transformer-based representations bridging tabular bioprocess ML with modern protein language models.
-The thermostability problem is directly relevant to industrial enzyme engineering for fermentation and bioconversion processes, including lipase production systems studied in published research.
+This project is a direct extension of published experimental research on ML-driven bioprocess optimization. Prior work applied ANN, Random Forest, and Bayesian optimization to fermentation and enzymatic production systems. This project extends that framework to protein-level sequence modelling using transformer-based representations bridging tabular bioprocess ML with modern protein language models. The thermostability problem is directly relevant to industrial enzyme engineering for fermentation and bioconversion processes, including lipase production systems studied in published research.
 
 ## Setup
 
