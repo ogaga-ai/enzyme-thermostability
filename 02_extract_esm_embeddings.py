@@ -12,7 +12,7 @@ from transformers import EsmModel, EsmTokenizer
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Device: {DEVICE}")
 
-MODEL_NAME = "facebook/esm2_t12_35M_UR50D"
+MODEL_NAME = "facebook/esm2_t30_150M_UR50D"
 print(f"Loading ESM-2 model ({MODEL_NAME})...")
 tokenizer = EsmTokenizer.from_pretrained(MODEL_NAME)
 model = EsmModel.from_pretrained(MODEL_NAME)

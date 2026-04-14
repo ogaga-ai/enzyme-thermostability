@@ -1,4 +1,6 @@
 model,rmse,mae,r2,spearman
 Baseline: Random Forest (AA composition),4.7003,3.8421,0.32,0.5606
-ESM-2 + Ridge Regression,4.3339,3.4613,0.4219,0.6551
-ESM-2 + Gradient Boosting,4.3568,3.4628,0.4158,0.6397
+ESM-2 + Ridge Regression,4.2851,3.404,0.4349,0.6564
+ESM-2 + Gradient Boosting,4.2735,3.4156,0.4379,0.6521
+ESM-2 150M + Ridge (aug.),4.2058,3.3361,0.4556,0.6727
+ESM-2 150M + GradBoost (aug.),4.2191,3.3467,0.4521,0.6666

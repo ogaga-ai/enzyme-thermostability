@@ -70,19 +70,28 @@ for alpha in [0.01, 0.1, 1.0, 10.0, 100.0, 1000.0]:
     if val_r2 > best_val_r2:
         best_val_r2, best_alpha = val_r2, alpha
 
-print(f"  Best alpha: {best_alpha}  (val R²={best_val_r2:.4f})")
+print(f"  Best alpha: {best_alpha}  (val R2={best_val_r2:.4f})")
+
+# Retrain on train + val combined for maximum data
+X_trainval = np.vstack([X_train, X_val])
+y_trainval = np.concatenate([y_train, y_val])
+scaler_full = StandardScaler()
+X_trainval_scaled = scaler_full.fit_transform(X_trainval)
+X_test_scaled_full = scaler_full.transform(X_test)
+
 ridge = Ridge(alpha=best_alpha)
-ridge.fit(X_train_scaled, y_train)
-ridge_pred_test = ridge.predict(X_test_scaled)
+ridge.fit(X_trainval_scaled, y_trainval)
+ridge_pred_test = ridge.predict(X_test_scaled_full)
+print(f"  Trained on {len(y_trainval)} samples (train + val combined)")
 
 # ── Proposed B: Gradient Boosting on ESM-2 embeddings ─────────────────────────
 print("Training Gradient Boosting on ESM-2 embeddings...")
 gb = GradientBoostingRegressor(
     n_estimators=300, learning_rate=0.05, max_depth=4, subsample=0.8, random_state=42
 )
-gb.fit(X_train_scaled, y_train)
-gb_pred_test = gb.predict(X_test_scaled)
-print(f"  Val R2 (GB): {r2_score(y_val, gb.predict(X_val_scaled)):.4f}")
+gb.fit(X_trainval_scaled, y_trainval)
+gb_pred_test = gb.predict(X_test_scaled_full)
+print(f"  Trained on {len(y_trainval)} samples (train + val combined)")
 
 
 # ── Metrics ───────────────────────────────────────────────────────────────────

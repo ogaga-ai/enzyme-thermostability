@@ -109,8 +109,14 @@ except ImportError:
 fig, axes = plt.subplots(1, 3, figsize=(12, 4))
 fig.suptitle("Model Comparison — Test Set Performance", fontsize=13, fontweight="bold")
 
-short_names = ["RF\nBaseline", "ESM-2\n+Ridge", "ESM-2\n+GradBoost"]
-bar_colors = ["#e63946", "#4361ee", "#2ec4b6"]
+short_names = [
+    "RF\nBaseline",
+    "35M\n+Ridge",
+    "35M\n+GradBoost",
+    "150M+Ridge\n+Physchem",
+    "150M+GB\n+Physchem",
+]
+bar_colors = ["#e63946", "#4361ee", "#2ec4b6", "#f77f00", "#7b2d8b"]
 
 for ax, metric_col, ylabel, higher_better in zip(
     axes,
